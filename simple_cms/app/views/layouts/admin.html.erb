@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple CMS <%= @page_title || "Admin Area"%></title>
+    <%= stylesheet_link_tag('admin', :media => 'all')%>
+  </head>
+
+  <body>
+    <div id = "header">
+      <h1>Simple CMS Admin</h1>
+    </div>
+    <div class="main">
+      <% if !flash[:notice].blank? %>
+        <div class="notice">
+          <%= flash[:notice]%>
+        </div>
+      <%end%>
+    </div> 
+    <div id="content">
+      <%= yield %>
+    </div>
+    <div class="footer">
+      <p>This is footer area</p>
+    </div>
+  </body>
+</html>
