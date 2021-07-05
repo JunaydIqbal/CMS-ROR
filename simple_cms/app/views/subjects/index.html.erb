@@ -1,0 +1,30 @@
+<div class = "Subjects Index"> 
+  <h2>Subjects</h2>
+
+  <%= link_to("Add New Subject", new_subject_path)%>
+
+  <table class = "listing" summary = "subject list">
+    <tr class = "header">
+      <th>#</th>
+      <th>Subject</th>
+      <th>Visible</th>
+      
+      <th>Actions</th>
+
+    </tr>
+
+    <% @subjects.each do |sub|%>
+    <tr>
+      <td><%= sub.position%></td>
+      <td><%= sub.name%></td>
+      <td class="center"><%= sub.visible ? "Yes" : "No" %></td>
+      
+      <td class="center">
+        <%= link_to("Show", subject_path(sub), :class => 'action show')%>
+        <%= link_to("Edit", edit_subject_path(sub), :class => 'action edit')%>
+        <%= link_to("Delete", delete_subject_path(sub), :class => 'action delete')%>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>
