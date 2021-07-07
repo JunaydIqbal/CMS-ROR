@@ -13,27 +13,32 @@ class SubjectsController < ApplicationController
 
   def new
     @subject = Subject.new
+    @subject_count = Subject.count + 1
   end
 
-  def create
-    
+  def create  
     @subject = Subject.new(subject_params)
     if @subject.save
+      flash[:notice] = "Subject successfully created!"
       redirect_to(subjects_path)
     else
+      @subject_count = Subject.count + 1
       render('new')
     end
   end
 
   def edit
     @subject = Subject.find(params[:id])
+    @subject_count = Subject.count
   end
 
   def update
     @subject = Subject.find(params[:id])
     if @subject.update(subject_params)
+      flash[:notice] = "Subject updated successfully!"
       redirect_to(subjects_path(@subject))
     else
+      @subject_count = Subject.count
       render('edit')
     end
   end
@@ -45,11 +50,12 @@ class SubjectsController < ApplicationController
   def destroy
     @subject = Subject.find(params[:id])
     @subject.destroy
+    flash[:notice] = "Subject #{@subject.name} deleted successfully!"
     redirect_to(subjects_path)
   end
 
   private
     def subject_params
-      params.require(:subject).permit(:name, :visible, :position)
+      params.require(:subject).permit(:name, :visible, :position, :created_at)
     end
 end

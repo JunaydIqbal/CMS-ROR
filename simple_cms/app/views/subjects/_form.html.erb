@@ -1,11 +1,4 @@
-<%= link_to("<< Back to List", subjects_path, :class => 'back-link') %>
-
-<div class="Subjects edit">
-  <h2>Update Subject</h2>
-
-  <%= form_for(@subject) do |f| %>
-
-    <table summary="Subject form fields">
+<table summary="Subject form fields">
       <tr>
         <th>Name</th>
         <td><%= f.text_field(:name) %></td>
@@ -26,11 +19,4 @@
           <%= f.datetime_select(:created_at, :order => [:month, :day, :year])%>
         </td>
       </tr>
-    </table>
-
-    <div class="form-buttons">
-      <%= f.submit("Update Subject") %>
-    </div>
-
-  <% end %>
-</div>
+</table>

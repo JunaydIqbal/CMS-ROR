@@ -17,7 +17,7 @@
     <tr>
       <td><%= sub.position%></td>
       <td><%= sub.name%></td>
-      <td class="center"><%= sub.visible ? "Yes" : "No" %></td>
+      <td class="center"><%= status_tag(sub.visible) %></td>
       
       <td class="center">
         <%= link_to("Show", subject_path(sub), :class => 'action show')%>

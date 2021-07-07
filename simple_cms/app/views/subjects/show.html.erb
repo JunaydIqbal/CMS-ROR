@@ -14,7 +14,7 @@
     </tr>
     <tr>
       <th>Visible?</th>
-      <td><%= @subject.visible ? 'true' : 'false' %></td>
+      <td><%= status_tag(@subject.visible) %></td>
     </tr>
     <tr>
       <th>Created</th>
