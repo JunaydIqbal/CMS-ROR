@@ -17,12 +17,12 @@
       <td><%= status_tag(@subject.visible) %></td>
     </tr>
     <tr>
-      <th>Created</th>
-      <td><%= @subject.created_at %></td>
+      <th>Publish DateTime</th>
+      <td><%= @subject.created_at.strftime("%m/%d/%Y %I:%M:%S %p") %></td>
     </tr>
     <tr>
-      <th>Updated</th>
-      <td><%= @subject.updated_at %></td>
+      <th>Last Modification</th>
+      <td><%= @subject.updated_at.strftime("%m/%d/%Y %I:%M:%S %p") %></td>
     </tr>
   </table>
 

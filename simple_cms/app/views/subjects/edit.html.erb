@@ -8,7 +8,7 @@
     <table summary="Subject form fields">
       <tr>
         <th>Name</th>
-        <td><%= f.text_field(:name) %></td>
+        <td><%= f.text_field(:name, required: true) %></td>
       </tr>
       <tr>
         <th>Position</th>
@@ -20,10 +20,10 @@
       </tr>
       <tr>
         <th>
-          Created at
+          Modify Publish DateTime
         </th>
         <td>
-          <%= f.datetime_select(:created_at, :order => [:month, :day, :year])%>
+          <%= f.datetime_select(:updated_at, :order => [:month, :day, :year])%>
         </td>
       </tr>
     </table>

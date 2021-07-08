@@ -34,7 +34,7 @@ class SubjectsController < ApplicationController
 
   def update
     @subject = Subject.find(params[:id])
-    if @subject.update(subject_params)
+    if @subject.update(subject_params_modified)
       flash[:notice] = "Subject updated successfully!"
       redirect_to(subjects_path(@subject))
     else
@@ -57,5 +57,9 @@ class SubjectsController < ApplicationController
   private
     def subject_params
       params.require(:subject).permit(:name, :visible, :position, :created_at)
+    end
+
+    def subject_params_modified
+      params.require(:subject).permit(:name, :visible, :position, :updated_at)
     end
 end

@@ -1,22 +1,22 @@
 <table summary="Subject form fields">
       <tr>
         <th>Name</th>
-        <td><%= f.text_field(:name) %></td>
+        <td><%= f.text_field(:name, required: true) %></td>
       </tr>
       <tr>
         <th>Position</th>
-        <td><%= f.select(:position, 1..@subject_count) %></td>
+        <td><%= f.select(:position, @subject_count..@subject_count) %></td>
       </tr>
       <tr>
         <th>Visible</th>
-        <td><%= f.check_box(:visible) %></td>
+        <td><%= f.check_box(:visible, checked: "checked") %></td>
       </tr>
       <tr>
         <th>
-          Created at
+          Publish DateTime
         </th>
         <td>
-          <%= f.datetime_select(:created_at, :order => [:month, :day, :year])%>
+          <%= f.datetime_select(:created_at, default: DateTime.now, :order => [:month, :day, :year], ampm: true)%>
         </td>
       </tr>
 </table>
